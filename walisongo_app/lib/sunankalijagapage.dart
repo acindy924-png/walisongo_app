@@ -25,7 +25,7 @@ class SunanKalijagaPage extends StatelessWidget {
                 _buildBiografiSection(),
                 const SizedBox(height: 24),
                 _buildImageSection(
-                  'assets/images/wayang_kalijaga.jpg',
+                  'assets/images/wayang_kalijaga.jpeg',
                   'Filosofi Dakwah: Wayang & Seni',
                 ),
                 const SizedBox(height: 16),

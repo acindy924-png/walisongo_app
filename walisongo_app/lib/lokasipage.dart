@@ -26,7 +26,7 @@ class _LokusiPageState extends State<LokusiPage> {
       'nama': 'Sunan Gunung Jati',
       'desc': 'Sunan Gunung Jati memiliki nama asli yaitu Syarif Hidayatullah adalah putra dari Raja Abdullah (Syarif Abdullah).',
       'wilayah': 'Jawa Barat',
-      'imagePath': 'assets/images/sunan_gunung_jati.jpg',
+      'imagePath': 'assets/images/sunan_gunung_jati.jpeg',
       'masjid': 'Masjid Jami Sunan Gunung Jati',
       'jarak': '120m dari titik Anda',
       'status': 'Terbuka',
