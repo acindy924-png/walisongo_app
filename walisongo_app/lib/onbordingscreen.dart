@@ -52,16 +52,15 @@ class _OnboardingScreenState extends State<OnboardingScreen>
   late AnimationController _fadeController;
   late Animation<double> _fadeAnimation;
 
-  // Ganti imagePath dengan asset gambar kamu, misal 'assets/images/masjid1.jpg'
   final List<OnboardingData> _pages = const [
     OnboardingData(
-      imagePath: 'assets/images/menara_kudus.jpg',
+      imagePath: 'assets/images/menara_kudus.jpeg',
       title: 'Selamat Datang',
       description:
           'Temukan cara baru untuk tetap berziarah dengan mudah dan menarik',
     ),
     OnboardingData(
-      imagePath: 'assets/images/masjid_demak.jpg',
+      imagePath: 'assets/images/masjid_demak.jpeg',
       title: 'Walisongo Aplikasi',
       description:
           'Menghubungkan ilmu, nilai islami, dan teknologi untuk pengalaman yang lebih mudah dan nyaman',
