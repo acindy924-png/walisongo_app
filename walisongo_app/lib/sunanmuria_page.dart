@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SunanKalijagaPage extends StatelessWidget {
-  const SunanKalijagaPage({super.key});
+class SunanMuriaPage extends StatelessWidget {
+  const SunanMuriaPage({super.key});
 
   static const Color primaryGreen = Color(0xFF2D6A4F);
   static const Color darkGreen = Color(0xFF1B4332);
@@ -25,13 +25,13 @@ class SunanKalijagaPage extends StatelessWidget {
                 _buildBiografiSection(),
                 const SizedBox(height: 24),
                 _buildImageSection(
-                  'assets/images/wayang.jpeg', // ← Pastikan sudah ada di pubspec.yaml
-                  'Filosofi Dakwah: Wayang & Seni',
+                  'assets/images/gunung_muria.png', // ← Pastikan sudah ada di pubspec.yaml
+                  'Filosofi Dakwah: Merangkul Rakyat Jelata di Gunung',
                 ),
                 const SizedBox(height: 16),
                 _buildFilosofiSection(),
                 const SizedBox(height: 24),
-                _buildIlirIlirSection(),   
+                _buildTradisiSection(),   
                 const SizedBox(height: 24),
                 _buildTempatSection(),
                 const SizedBox(height: 32),
@@ -63,9 +63,9 @@ class SunanKalijagaPage extends StatelessWidget {
         background: Stack(
           fit: StackFit.expand,
           children: [
-            // Gambar Utama Sunan Kalijaga
+            // Gambar Utama Sunan Muria
             Image.asset(
-              'assets/images/sunan_kalijaga.jpg', // ← Bisa disesuaikan dengan path foto Anda
+              'assets/images/sunan_muria.jpeg', // ← Bisa disesuaikan dengan path foto Anda
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(
@@ -101,7 +101,7 @@ class SunanKalijagaPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Sunan Kalijaga',
+                    'Sunan Muria',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w800,
@@ -111,7 +111,7 @@ class SunanKalijagaPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    '"Mangesthi Sing Temenan, Kanggo Kaslamétaning..."',
+                    '"Pager mangkok luwih becik tinimbang pager tembok..."',
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.white.withOpacity(0.75),
@@ -156,7 +156,7 @@ class SunanKalijagaPage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const Text(
-            'Lahir dengan nama Raden Syahid pada sekitar tahun 1450 M, beliau merupakan putra dari Tumenggung Wilatikta, Bupati Tuban. Perjalanan spiritualnya dimulai dari kegelisahan nurani melihat ketimpangan sosial, yang membawanya pada pertemuan legendaris dengan Sunan Bonang.',
+            'Lahir dengan nama Raden Umar Said (atau Raden Prawoto), beliau merupakan putra dari Sunan Kalijaga dan Dewi Soejinah (adik Sunan Kudus). Mewarisi jiwa seni dan pendekatan kultural yang kuat dari ayahnya, Sunan Muria memilih jalan dakwah yang unik dengan menjauh dari hiruk-pikuk pusat kekuasaan.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -165,7 +165,7 @@ class SunanKalijagaPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'Kisah "Penjaga Kali" (Kalijaga) yang mashyur menggambarkan kekuatan hati beliau dalam menjalani laku prihatin dan meditasi di pinggir sungai sebagai bagian dari ujian spiritual sebelum akhirnya menjadi anggota Walisongo yang paling berpengaruh di tanah Jawa.',
+            'Beliau mendirikan pesantren dan tinggal di puncak Gunung Muria, sebuah wilayah terpencil yang dikelilingi lereng gunung lebat. Dari sana, beliau menyebarkan Islam kepada masyarakat jelata, termasuk para petani, nelayan, pedagang, dan pelaut, dengan metode yang sangat merakyat dan penuh empati.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -245,12 +245,16 @@ class SunanKalijagaPage extends StatelessWidget {
   Widget _buildFilosofiSection() {
     final items = [
       {
-        'title': 'Pewayangan',
-        'desc': 'Metafora perjalanan jiwa menuju Sang Khalik.',
+        'title': 'Tembang Sinom & Kinanthi',
+        'desc': 'Mengubah lirik puisi macapat tradisional menjadi media pengajaran akhlak dan ketuhanan.',
       },
       {
-        'title': 'Tembang Ilir-Ilir',
-        'desc': 'Pesan spiritual untuk bangkit dari kegelapan.',
+        'title': 'Kursus Keterampilan',
+        'desc': 'Mengajarkan langsung teknik bertani, bercocok tanam, serta berdagang untuk meningkatkan taraf hidup warga lereng gunung.',
+      },
+      {
+        'title': 'Topografi Menyendiri',
+        'desc': 'Memilih berdakwah di tempat-tempat sunyi, terpencil, dan pedalaman guna menyentuh lapisan masyarakat yang tidak terjangkau.',
       },
     ];
 
@@ -260,7 +264,7 @@ class SunanKalijagaPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Berbeda dengan metode dakwah konvensional, Sunan Kalijaga menggunakan pendekatan Akulturasi Budaya. Beliau memodifikasi Wayang Kulit yang semula bernilai dengan epik Hindu-Buddha menjadi media syiar Islam.',
+            'Gaya dakwah Sunan Muria sering disebut sebagai "Dakwah Ambyah", yaitu menyusup ke dalam tradisi rakyat kecil lalu mewarnainya dengan napas Islam. Beliau dikenal sangat toleran dan mempertahankan tradisi lama yang tidak syirik dengan mengubah fungsinya menjadi sarana bersyukur.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -312,7 +316,7 @@ class SunanKalijagaPage extends StatelessWidget {
     );
   }
 
-  Widget _buildIlirIlirSection() {
+  Widget _buildTradisiSection() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
@@ -326,25 +330,26 @@ class SunanKalijagaPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Icon(
-              Icons.music_note,
+              Icons.volunteer_activism,
               color: textDark,
               size: 28,
             ),
             const SizedBox(height: 12),
             const Text(
-              'Lir-ilir, lir-ilir, tandure wus sumilir...',
+              'Filosofi Pager Mangkok',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
                 fontWeight: FontWeight.w800,
                 color: textDark,
                 height: 1.3,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
             const Text(
-              '"Bangunlah, bangunlah! Tanaman sudah bersemi, demikian indahnya dan menghijau, bagaikan pengantin baru..."',
+              '"Pager mangkok luwih becik tinimbang pager tembok."\n\n'
+              'Ajaran ini memiliki makna filosofis sosial yang mendalam: "Membentengi rumah dengan mangkok (saling berbagi makanan/bersedekah kepada tetangga) jauh lebih aman dan menyelamatkan daripada membentenginya dengan tembok yang tinggi (bersikap individualis)." Kesalehan sosial adalah benteng keamanan yang sejati.',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 13,
                 color: textGray,
                 height: 1.65,
                 fontStyle: FontStyle.italic,
@@ -360,16 +365,16 @@ class SunanKalijagaPage extends StatelessWidget {
   Widget _buildTempatSection() {
     final tempat = [
       {
-        'nama': 'Masjid Agung Demak',
-        'desc': 'Terkenal dengan "Soko Tatal", tiang utama yang terbuat dari serpihan kayu karya Sunan Kalijaga.',
-        'lokasi': 'Demak, Jawa Tengah',
-        'image': 'assets/images/masjid_demak.jpeg',
+        'nama': 'Pasar Sunan Muria',
+        'desc': 'Pasar tradisional yang menjadi pusat aktivitas ekonomi dan sosial di sekitar lereng Gunung Muria, tempat Sunan Muria tinggal dan mengajar masyarakat',
+        'lokasi': 'Colo, Dawe, Kudus',
+        'image': 'assets/images/pasar_muria.png',
       },
       {
-        'nama': 'Makam Sunan Kalijaga',
-        'desc': 'Tempat peristirahatan terakhir beliau, yang menjadi pusat peziarahan dan kajian budaya.',
-        'lokasi': 'Kadilangu, Demak',
-        'image': 'assets/images/makam_kalijaga.jpeg',
+        'nama': 'Makam Sunan Muria',
+        'desc': 'Berada tepat di belakang bangunan Masjid Muria di puncak bukit. Untuk mencapainya, peziarah biasanya melewati ribuan anak tangga yang asri.',
+        'lokasi': 'Puncak Gunung Muria, Kudus, Jawa Tengah',
+        'image': 'assets/images/makam_muria.png',
       },
     ];
 

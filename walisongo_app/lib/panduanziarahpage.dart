@@ -8,7 +8,7 @@ class PanduanZiarahPage extends StatelessWidget {
   static const Color lightGreenBg = Color(0xFFEBF5EE);
   static const Color bgColor = Color(0xFFF8F6F2);
   static const Color cardBg = Color(0xFFFFFFFF);
-  static const Color textDark = Color(0xFF1A1A1A);
+  static const Color textDark = Color.fromRGBO(45, 106, 79, 1);
   static const Color textGray = Color(0xFF6B6B6B);
 
   static const List<Map<String, String>> _adabList = [
@@ -30,15 +30,43 @@ class PanduanZiarahPage extends StatelessWidget {
     },
   ];
 
+  // Fungsi interaktif ketika ikon search ditekan
+  void _showSearchInfo(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: const Row(
+            children: [
+              Icon(Icons.lightbulb_outline, color: primaryGreen),
+              SizedBox(width: 8),
+              Text('Pencarian Cepat', style: TextStyle(color: darkGreen, fontWeight: FontWeight.bold)),
+            ],
+          ),
+          content: const Text(
+            'Seluruh panduan adab, doa utama, dan tips praktis ziarah Walisongo sudah dirangkum lengkap di halaman ini. Anda bisa langsung menggulir layar ke bawah.',
+            style: TextStyle(color: textDark, fontSize: 14, height: 1.4),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Mengerti', style: TextStyle(color: primaryGreen, fontWeight: FontWeight.bold)),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Scaffold di sini sekarang bersih tanpa bottomNavigationBar bawaan sendiri
     return Scaffold(
       backgroundColor: bgColor,
       body: SafeArea(
         child: Column(
           children: [
-            _buildAppBar(),
+            _buildAppBar(context),
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.only(bottom: 20),
@@ -66,8 +94,7 @@ class PanduanZiarahPage extends StatelessWidget {
     );
   }
 
-  // --- Widget-Widget Builder di bawah ini tetap sama seperti kode asli Anda ---
-  Widget _buildAppBar() {
+  Widget _buildAppBar(BuildContext context) {
     return Container(
       color: bgColor,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
@@ -75,16 +102,24 @@ class PanduanZiarahPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
-            children: const [
-              Icon(Icons.menu, color: textDark, size: 24),
-              SizedBox(width: 12),
-              Text(
+            children: [
+              // Mengaktifkan fitur kembali ke halaman beranda
+              GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: const Icon(Icons.arrow_back, color: Color.fromRGBO(45, 106, 79, 1)),
+              ),
+              const SizedBox(width: 12),
+              const Text(
                 'Walisongo',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: textDark),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Color.fromRGBO(45, 106, 79, 1)),
               ),
             ],
           ),
-          const Icon(Icons.search, color: textDark, size: 24),
+          // Mengaktifkan fungsionalitas interaktif untuk tombol cari
+          GestureDetector(
+            onTap: () => _showSearchInfo(context),
+            child: const Icon(Icons.search, color: Color.fromRGBO(45, 106, 79, 1), size: 24),
+          ),
         ],
       ),
     );
@@ -98,9 +133,9 @@ class PanduanZiarahPage extends StatelessWidget {
         children: [
           const Text('EDUKASI SPIRITUAL', style: TextStyle(fontSize: 10, fontWeight: FontWeight.w600, color: primaryGreen, letterSpacing: 1.5)),
           const SizedBox(height: 6),
-          const Text('Panduan Ziarah', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800, color: textDark)),
+          const Text('Panduan Ziarah', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w800, color: Color.fromRGBO(45, 106, 79, 1),)),
           const SizedBox(height: 8),
-          Text('Tatacara dan adab berziarah ke makam para Wali dengan penuh khidmat dan sesuai tuntunan syariat.', style: TextStyle(fontSize: 13.5, color: textGray, height: 1.5)),
+          const Text('Tatacara dan adab berziarah ke makam para Wali dengan penuh khidmat dan sesuai tuntunan syariat.', style: TextStyle(fontSize: 13.5, color: textGray, height: 1.5)),
         ],
       ),
     );
@@ -112,8 +147,8 @@ class PanduanZiarahPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: const [
+          const Row(
+            children: [
               Text('📿', style: TextStyle(fontSize: 18)),
               SizedBox(width: 8),
               Text('Adab Berziarah', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: textDark)),
@@ -151,7 +186,7 @@ class PanduanZiarahPage extends StatelessWidget {
               children: [
                 Text(title, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: textDark)),
                 const SizedBox(height: 4),
-                Text(desc, style: TextStyle(fontSize: 12.5, color: textGray, height: 1.5)),
+                Text(desc, style: const TextStyle(fontSize: 12.5, color: textGray, height: 1.5)),
               ],
             ),
           ),
@@ -166,8 +201,8 @@ class PanduanZiarahPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: const [
+          const Row(
+            children: [
               Text('🤲', style: TextStyle(fontSize: 18)),
               SizedBox(width: 8),
               Text('Doa-Doa Utama', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: textDark)),
@@ -190,7 +225,7 @@ class PanduanZiarahPage extends StatelessWidget {
                 const Text('Salam Kepada Ahli Kubur', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: textDark)),
                 const SizedBox(height: 16),
                 const Text(
-                  'ٱلسَّلَامُ عَلَيْكُمْ دَارَ قَوْمٍ مُّؤْمِنِينَ وَإِنَّآ إِن شَآءَ ٱللَّهُ بِكُمْ Lَٰحِقُونَ',
+                  'ٱلسَّلَامُ عَلَيْكُمْ دَارَ قَوْمٍ مُّؤْمِنِينَ وَإِنَّآ إِن شَآءَ ٱللَّهُ بِكُمْ لَٰحِقُونَ',
                   textAlign: TextAlign.right,
                   textDirection: TextDirection.rtl,
                   style: TextStyle(fontSize: 20, color: darkGreen, fontWeight: FontWeight.w600, height: 1.8),
@@ -262,89 +297,87 @@ class PanduanZiarahPage extends StatelessWidget {
   }
 
   Widget _buildPersiapanTerakhir() {
-  final items = [
-    'Memastikan wudhu belum batal',
-    'Mematikan atau menonaktifkan suara ponsel',
-    'Membawa buku panduan atau aplikasi Walisongo',
-  ];
+    final items = [
+      'Memastikan wudhu belum batal',
+      'Mematikan atau menonaktifkan suara ponsel',
+      'Membawa buku panduan atau aplikasi Walisongo',
+    ];
 
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 20),
-    child: Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: cardBg,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: Colors.grey.shade100),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.04),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Header
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: lightGreenBg,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Icon(
-                  Icons.checklist_rounded,
-                  color: primaryGreen,
-                  size: 18,
-                ),
-              ),
-              const SizedBox(width: 10),
-              const Text(
-                'Persiapan Terakhir',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: textDark,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 14),
-          // List item
-          ...items.map(
-            (item) => Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Icon(
-                    Icons.check_circle_outline_rounded,
-                    color: primaryGreen,
-                    size: 20,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(18),
+        decoration: BoxDecoration(
+          color: cardBg,
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: Colors.grey.shade100),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.04),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: lightGreenBg,
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Text(
-                      item,
-                      style: const TextStyle(
-                        fontSize: 13,
-                        color: textGray,
-                        height: 1.4,
+                  child: const Icon(
+                    Icons.checklist_rounded,
+                    color: primaryGreen,
+                    size: 18,
+                  ),
+                ),
+                const SizedBox(width: 10),
+                const Text(
+                  'Persiapan Terakhir',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: textDark,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 14),
+            ...items.map(
+              (item) => Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(
+                      Icons.check_circle_outline_rounded,
+                      color: primaryGreen,
+                      size: 20,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        item,
+                        style: const TextStyle(
+                          fontSize: 13,
+                          color: textGray,
+                          height: 1.4,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ),
-  );
-}
+    );
+  }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SunanKalijagaPage extends StatelessWidget {
-  const SunanKalijagaPage({super.key});
+class SunanAmpelPage extends StatelessWidget {
+  const SunanAmpelPage({super.key});
 
   static const Color primaryGreen = Color(0xFF2D6A4F);
   static const Color darkGreen = Color(0xFF1B4332);
@@ -25,13 +25,13 @@ class SunanKalijagaPage extends StatelessWidget {
                 _buildBiografiSection(),
                 const SizedBox(height: 24),
                 _buildImageSection(
-                  'assets/images/wayang.jpeg', // ← Pastikan sudah ada di pubspec.yaml
-                  'Filosofi Dakwah: Wayang & Seni',
+                  'assets/images/masjid_ampel.jpeg',
+                  'Masjid Ampel — Pusat Dakwah Islam Nusantara',
                 ),
                 const SizedBox(height: 16),
-                _buildFilosofiSection(),
+                _buildDakwahSection(),
                 const SizedBox(height: 24),
-                _buildIlirIlirSection(),   
+                _buildMohLimoSection(),
                 const SizedBox(height: 24),
                 _buildTempatSection(),
                 const SizedBox(height: 32),
@@ -43,7 +43,7 @@ class SunanKalijagaPage extends StatelessWidget {
     );
   }
 
-  // ─── 1. SLIVER APP BAR DENGAN FOTO UTAMA ─────────────────────────────────────
+  // ─── 1. SLIVER APP BAR ───────────────────────────────────────────────────────
   Widget _buildSliverAppBar(BuildContext context) {
     return SliverAppBar(
       expandedHeight: 320,
@@ -63,9 +63,9 @@ class SunanKalijagaPage extends StatelessWidget {
         background: Stack(
           fit: StackFit.expand,
           children: [
-            // Gambar Utama Sunan Kalijaga
+            // Foto utama Sunan Ampel
             Image.asset(
-              'assets/images/sunan_kalijaga.jpg', // ← Bisa disesuaikan dengan path foto Anda
+              'assets/images/sunan _ampel.jpeg',
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(
@@ -76,7 +76,7 @@ class SunanKalijagaPage extends StatelessWidget {
                 );
               },
             ),
-            // Overlay gradasi gelap bawah agar teks putih terbaca jelas
+            // Overlay gradasi gelap bawah
             Positioned.fill(
               child: Container(
                 decoration: BoxDecoration(
@@ -92,7 +92,7 @@ class SunanKalijagaPage extends StatelessWidget {
                 ),
               ),
             ),
-            // Teks Nama & Kutipan
+            // Teks nama & kutipan
             Positioned(
               bottom: 24,
               left: 20,
@@ -101,7 +101,7 @@ class SunanKalijagaPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Sunan Kalijaga',
+                    'Sunan Ampel',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w800,
@@ -111,7 +111,7 @@ class SunanKalijagaPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    '"Mangesthi Sing Temenan, Kanggo Kaslamétaning..."',
+                    '"Moh Limo — Lima Pantangan sebagai Pondasi Akhlak Islam"',
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.white.withOpacity(0.75),
@@ -127,6 +127,7 @@ class SunanKalijagaPage extends StatelessWidget {
     );
   }
 
+  // ─── 2. BIOGRAFI ─────────────────────────────────────────────────────────────
   Widget _buildBiografiSection() {
     return Padding(
       padding: const EdgeInsets.all(20),
@@ -140,7 +141,7 @@ class SunanKalijagaPage extends StatelessWidget {
                 height: 24,
                 decoration: BoxDecoration(
                   color: primaryGreen,
-                  borderRadius: BorderRadius.circular(2)
+                  borderRadius: BorderRadius.circular(2),
                 ),
               ),
               const SizedBox(width: 10),
@@ -156,7 +157,7 @@ class SunanKalijagaPage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const Text(
-            'Lahir dengan nama Raden Syahid pada sekitar tahun 1450 M, beliau merupakan putra dari Tumenggung Wilatikta, Bupati Tuban. Perjalanan spiritualnya dimulai dari kegelisahan nurani melihat ketimpangan sosial, yang membawanya pada pertemuan legendaris dengan Sunan Bonang.',
+            'Sayyid Ali Rahmatullah, yang dikenal dengan nama Sunan Ampel, adalah salah satu tokoh utama penyebaran agama Islam di Tanah Jawa. Lahir pada tahun 1401 di Kerajaan Jeumpa, Sunan Ampel adalah putra dari Syekh Ibrahim As-Samarqandi dengan Dewi Condrowulan. Sunan Ampel juga merupakan keponakan Raja Majapahit, Prabu Kertawijaya, yang kemudian masuk Islam.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -165,7 +166,7 @@ class SunanKalijagaPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'Kisah "Penjaga Kali" (Kalijaga) yang mashyur menggambarkan kekuatan hati beliau dalam menjalani laku prihatin dan meditasi di pinggir sungai sebagai bagian dari ujian spiritual sebelum akhirnya menjadi anggota Walisongo yang paling berpengaruh di tanah Jawa.',
+            'Pada tahun 1443, Sunan Ampel mendirikan Masjid Agung Demak. Dan yang menjadi penerus untuk melanjutkan perjuangan dakwahnya di tanah Jawa adalah Raden Qasim alias Sunan Drajat, dan juga beliau merupakan putra dari diri sendiri Karimah.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -177,7 +178,7 @@ class SunanKalijagaPage extends StatelessWidget {
     );
   }
 
-  // ─── 2. SEKSI FOTO FILOSOFI DAKWAH ──────────────────────────────────────────
+  // ─── 3. FOTO SEKSI ───────────────────────────────────────────────────────────
   Widget _buildImageSection(String imagePath, String caption) {
     return Container(
       width: double.infinity,
@@ -215,7 +216,8 @@ class SunanKalijagaPage extends StatelessWidget {
               left: 0,
               right: 0,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.bottomCenter,
@@ -242,15 +244,23 @@ class SunanKalijagaPage extends StatelessWidget {
     );
   }
 
-  Widget _buildFilosofiSection() {
+  // ─── 4. METODE DAKWAH ────────────────────────────────────────────────────────
+  Widget _buildDakwahSection() {
     final items = [
       {
-        'title': 'Pewayangan',
-        'desc': 'Metafora perjalanan jiwa menuju Sang Khalik.',
+        'title': 'Pesantren Ampeldenta',
+        'desc':
+            'Mendirikan pesantren pertama di Jawa sebagai pusat pendidikan Islam.',
       },
       {
-        'title': 'Tembang Ilir-Ilir',
-        'desc': 'Pesan spiritual untuk bangkit dari kegelapan.',
+        'title': 'Pendekatan Budaya',
+        'desc':
+            'Memadukan nilai Islam dengan tradisi lokal tanpa meninggalkan syariat.',
+      },
+      {
+        'title': 'Jaringan Dakwah',
+        'desc':
+            'Melahirkan murid-murid besar seperti Sunan Drajat dan Sunan Bonang.',
       },
     ];
 
@@ -259,8 +269,30 @@ class SunanKalijagaPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Row(
+            children: [
+              Container(
+                width: 4,
+                height: 24,
+                decoration: BoxDecoration(
+                  color: primaryGreen,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(width: 10),
+              const Text(
+                'Peninggalan Sejarah',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w800,
+                  color: textDark,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
           const Text(
-            'Berbeda dengan metode dakwah konvensional, Sunan Kalijaga menggunakan pendekatan Akulturasi Budaya. Beliau memodifikasi Wayang Kulit yang semula bernilai dengan epik Hindu-Buddha menjadi media syiar Islam.',
+            'Sunan Ampel dikenal dengan metode dakwah yang tegas namun penuh kasih sayang. Beliau membangun fondasi Islam di Nusantara melalui pendidikan, keluarga, dan keteladanan akhlak.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -268,51 +300,63 @@ class SunanKalijagaPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          ...items.map((item) => Padding(
-                padding: const EdgeInsets.only(bottom: 12),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(top: 4),
-                      padding: const EdgeInsets.all(4),
-                      decoration: BoxDecoration(
-                        color: lightGreenBg,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: const Icon(Icons.star, color: primaryGreen, size: 14),
+          ...items.map(
+            (item) => Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 4),
+                    padding: const EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      color: lightGreenBg,
+                      borderRadius: BorderRadius.circular(6),
                     ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: RichText(
-                        text: TextSpan(
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: textGray,
-                            height: 1.6,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: '${item['title']}: ',
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: textDark,
-                              ),
-                            ),
-                            TextSpan(text: item['desc']),
-                          ],
+                    child:
+                        const Icon(Icons.star, color: primaryGreen, size: 14),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: RichText(
+                      text: TextSpan(
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: textGray,
+                          height: 1.6,
                         ),
+                        children: [
+                          TextSpan(
+                            text: '${item['title']}: ',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w700,
+                              color: textDark,
+                            ),
+                          ),
+                          TextSpan(text: item['desc']),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-              )),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildIlirIlirSection() {
+  // ─── 5. MOH LIMO SECTION (pengganti Ilir-Ilir) ──────────────────────────────
+  Widget _buildMohLimoSection() {
+    final limoItems = [
+      {'no': '1.', 'text': 'Moh Madon: tidak mau main judi, togel, taruhan dan sejenisnya.'},
+      {'no': '2.', 'text': 'Moh Mabuk: tidak mau minum minuman keras, khamr dan sejenisnya.'},
+      {'no': '3.', 'text': 'Moh Madon: tidak mau berbuat zina, hamawis, lesbian dan sejenisnya.'},
+      {'no': '4.', 'text': 'Moh Madat: tidak mau mengonsumsi narkoba dan sejenisnya.'},
+      {'no': '5.', 'text': 'Moh Maling: tidak mau mencuri, korupsi, merampok dan sejenisnya.'},
+    ];
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
@@ -326,13 +370,13 @@ class SunanKalijagaPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Icon(
-              Icons.music_note,
+              Icons.format_list_numbered,
               color: textDark,
               size: 28,
             ),
             const SizedBox(height: 12),
             const Text(
-              'Lir-ilir, lir-ilir, tandure wus sumilir...',
+              'Ajaran Sunan Ampel',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
@@ -340,14 +384,43 @@ class SunanKalijagaPage extends StatelessWidget {
                 height: 1.3,
               ),
             ),
-            const SizedBox(height: 16),
-            const Text(
-              '"Bangunlah, bangunlah! Tanaman sudah bersemi, demikian indahnya dan menghijau, bagaikan pengantin baru..."',
+            const SizedBox(height: 6),
+            Text(
+              'Moh Limo — Lima hal yang harus dihindari',
               style: TextStyle(
-                fontSize: 14,
-                color: textGray,
-                height: 1.65,
-                fontStyle: FontStyle.italic,
+                fontSize: 13,
+                color: primaryGreen,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 16),
+            ...limoItems.map(
+              (item) => Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      item['no']!,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: primaryGreen,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        item['text']!,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: textGray,
+                          height: 1.55,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -356,20 +429,22 @@ class SunanKalijagaPage extends StatelessWidget {
     );
   }
 
-  // ─── 3. CARD LOKASI / TEMPAT ZIARAH DENGAN FOTO ASSET ──────────────────────────
+  // ─── 6. TEMPAT ZIARAH ────────────────────────────────────────────────────────
   Widget _buildTempatSection() {
     final tempat = [
       {
-        'nama': 'Masjid Agung Demak',
-        'desc': 'Terkenal dengan "Soko Tatal", tiang utama yang terbuat dari serpihan kayu karya Sunan Kalijaga.',
-        'lokasi': 'Demak, Jawa Tengah',
-        'image': 'assets/images/masjid_demak.jpeg',
+        'nama': 'Masjid Agung Ampel',
+        'desc':
+            'Dibangun pada abad ke-15 Masehi, masjid yang didirikan Sunan Ampel ini punya keindahan dan gaya arsitektur yang khas dengan "Bentuk Sinkretisme Islam-Jawa" di Masjid Agung Surabaya.',
+        'lokasi': 'Ampel, Surabaya',
+        'image': 'assets/images/masjid_ampel.jpeg',
       },
       {
-        'nama': 'Makam Sunan Kalijaga',
-        'desc': 'Tempat peristirahatan terakhir beliau, yang menjadi pusat peziarahan dan kajian budaya.',
-        'lokasi': 'Kadilangu, Demak',
-        'image': 'assets/images/makam_kalijaga.jpeg',
+        'nama': 'Makam Sunan Ampel',
+        'desc':
+            'Kompleks makam yang dikelilingi gerbang gaya Eropa dan berada di kawasan kampung arab yang mempertahankan gaya timur tengah.',
+        'lokasi': 'Ampel, Surabaya',
+        'image': 'assets/images/makam_wali.jpeg',
       },
     ];
 
@@ -378,6 +453,28 @@ class SunanKalijagaPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Row(
+            children: [
+              Container(
+                width: 4,
+                height: 24,
+                decoration: BoxDecoration(
+                  color: primaryGreen,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(width: 10),
+              const Text(
+                'Tempat Ziarah',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w800,
+                  color: textDark,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
           ...tempat.map((item) => _buildTempatCard(item)),
         ],
       ),
@@ -402,12 +499,12 @@ class SunanKalijagaPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Render Foto di atas Card Tempat
           SizedBox(
             height: 160,
             width: double.infinity,
             child: ClipRRect(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(14)),
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(14)),
               child: Image.asset(
                 item['image']!,
                 fit: BoxFit.cover,
@@ -419,7 +516,8 @@ class SunanKalijagaPage extends StatelessWidget {
                       ),
                     ),
                     child: const Center(
-                      child: Icon(Icons.landscape, size: 48, color: Colors.white24),
+                      child:
+                          Icon(Icons.landscape, size: 48, color: Colors.white24),
                     ),
                   );
                 },
@@ -451,7 +549,8 @@ class SunanKalijagaPage extends StatelessWidget {
                 const SizedBox(height: 10),
                 Row(
                   children: [
-                    const Icon(Icons.location_on_outlined, color: primaryGreen, size: 15),
+                    const Icon(Icons.location_on_outlined,
+                        color: primaryGreen, size: 15),
                     const SizedBox(width: 4),
                     Text(
                       item['lokasi']!,

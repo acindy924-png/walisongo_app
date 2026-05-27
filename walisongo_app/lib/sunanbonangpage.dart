@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SunanKalijagaPage extends StatelessWidget {
-  const SunanKalijagaPage({super.key});
+class SunanBonangPage extends StatelessWidget {
+  const SunanBonangPage({super.key});
 
   static const Color primaryGreen = Color(0xFF2D6A4F);
   static const Color darkGreen = Color(0xFF1B4332);
@@ -25,13 +25,13 @@ class SunanKalijagaPage extends StatelessWidget {
                 _buildBiografiSection(),
                 const SizedBox(height: 24),
                 _buildImageSection(
-                  'assets/images/wayang.jpeg', // ← Pastikan sudah ada di pubspec.yaml
-                  'Filosofi Dakwah: Wayang & Seni',
+                  'assets/images/peninggalan_bonang.jpg', // ← Pastikan sudah ada di pubspec.yaml
+                  'Pondok Pesantren Sunan Bonang',
                 ),
                 const SizedBox(height: 16),
                 _buildFilosofiSection(),
                 const SizedBox(height: 24),
-                _buildIlirIlirSection(),   
+                _buildTomboAtiSection(),   
                 const SizedBox(height: 24),
                 _buildTempatSection(),
                 const SizedBox(height: 32),
@@ -63,9 +63,9 @@ class SunanKalijagaPage extends StatelessWidget {
         background: Stack(
           fit: StackFit.expand,
           children: [
-            // Gambar Utama Sunan Kalijaga
+            // Gambar Utama Sunan Bonang
             Image.asset(
-              'assets/images/sunan_kalijaga.jpg', // ← Bisa disesuaikan dengan path foto Anda
+              'assets/images/Sunan_Bonang.jpeg', // ← Bisa disesuaikan dengan path foto Anda
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(
@@ -101,7 +101,7 @@ class SunanKalijagaPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Sunan Kalijaga',
+                    'Sunan Bonang',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w800,
@@ -111,7 +111,7 @@ class SunanKalijagaPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    '"Mangesthi Sing Temenan, Kanggo Kaslamétaning..."',
+                    '"Tombo ati iku limang perkoro, kaping pisan..."',
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.white.withOpacity(0.75),
@@ -156,7 +156,7 @@ class SunanKalijagaPage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const Text(
-            'Lahir dengan nama Raden Syahid pada sekitar tahun 1450 M, beliau merupakan putra dari Tumenggung Wilatikta, Bupati Tuban. Perjalanan spiritualnya dimulai dari kegelisahan nurani melihat ketimpangan sosial, yang membawanya pada pertemuan legendaris dengan Sunan Bonang.',
+            'Lahir dengan nama Raden Makdum Ibrahim pada sekitar tahun 1465 M, beliau merupakan putra dari Sunan Ampel dan Nyai Ageng Manila. Sunan Bonang dikenal sebagai seorang ulama, sastrawan, seniman, sekaligus pakar ilmu fikih, ushuluddin, dan tasawuf yang sangat karismatik.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -165,7 +165,7 @@ class SunanKalijagaPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'Kisah "Penjaga Kali" (Kalijaga) yang mashyur menggambarkan kekuatan hati beliau dalam menjalani laku prihatin dan meditasi di pinggir sungai sebagai bagian dari ujian spiritual sebelum akhirnya menjadi anggota Walisongo yang paling berpengaruh di tanah Jawa.',
+            'Nama "Bonang" sendiri diambil dari salah satu instrumen gamelan Jawa yang dimodifikasi oleh beliau untuk memasukkan unsur-unsur zikir Islam. Beliau juga dikenal sebagai guru spiritual dari Raden Syahid (Sunan Kalijaga) sebelum Raden Syahid diangkat menjadi anggota Walisongo.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -245,12 +245,12 @@ class SunanKalijagaPage extends StatelessWidget {
   Widget _buildFilosofiSection() {
     final items = [
       {
-        'title': 'Pewayangan',
-        'desc': 'Metafora perjalanan jiwa menuju Sang Khalik.',
+        'title': 'Gamelan Bonang',
+        'desc': 'Mengubah alunan musik tradisional menjadi sarana penyejuk jiwa dan zikir.',
       },
       {
-        'title': 'Tembang Ilir-Ilir',
-        'desc': 'Pesan spiritual untuk bangkit dari kegelapan.',
+        'title': 'Suluk Wujil',
+        'desc': 'Karya sastra tasawuf mendalam yang memuat rahasia spiritual Islam-Jawa.',
       },
     ];
 
@@ -260,7 +260,7 @@ class SunanKalijagaPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Berbeda dengan metode dakwah konvensional, Sunan Kalijaga menggunakan pendekatan Akulturasi Budaya. Beliau memodifikasi Wayang Kulit yang semula bernilai dengan epik Hindu-Buddha menjadi media syiar Islam.',
+            'Sunan Bonang terkenal dengan pendekatan dakwah yang sangat kontekstual dan berbasis seni budaya. Beliau memanfaatkan kesenian rakyat yang digemari saat itu, lalu menyisipkan muatan tauhid dan akhlak mulia ke dalamnya.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -312,7 +312,7 @@ class SunanKalijagaPage extends StatelessWidget {
     );
   }
 
-  Widget _buildIlirIlirSection() {
+  Widget _buildTomboAtiSection() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
@@ -332,7 +332,7 @@ class SunanKalijagaPage extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             const Text(
-              'Lir-ilir, lir-ilir, tandure wus sumilir...',
+              'Tombo Ati, iku limang perkoro...',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w800,
@@ -342,7 +342,7 @@ class SunanKalijagaPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             const Text(
-              '"Bangunlah, bangunlah! Tanaman sudah bersemi, demikian indahnya dan menghijau, bagaikan pengantin baru..."',
+              '"Obat hati ada lima perkaranya. Pertama, membaca Al-Qur\'an dan maknanya. Kedua, mendirikan shalat malam. Ketiga, berkumpul dengan orang shaleh..."',
               style: TextStyle(
                 fontSize: 14,
                 color: textGray,
@@ -360,16 +360,16 @@ class SunanKalijagaPage extends StatelessWidget {
   Widget _buildTempatSection() {
     final tempat = [
       {
-        'nama': 'Masjid Agung Demak',
-        'desc': 'Terkenal dengan "Soko Tatal", tiang utama yang terbuat dari serpihan kayu karya Sunan Kalijaga.',
-        'lokasi': 'Demak, Jawa Tengah',
-        'image': 'assets/images/masjid_demak.jpeg',
+        'nama': 'Masjid Raya Tuban',
+        'desc': 'Makam Sunan Bonang berada di belakang Masjid Agung Tuban yang merupakan masjid peninggalan Sunan Bonang yang sudah berusia lebih dari 500 tahun.',
+        'lokasi': 'Kutorejo, Tuban',
+        'image': 'assets/images/masjid_bonang.jpeg',
       },
       {
-        'nama': 'Makam Sunan Kalijaga',
-        'desc': 'Tempat peristirahatan terakhir beliau, yang menjadi pusat peziarahan dan kajian budaya.',
-        'lokasi': 'Kadilangu, Demak',
-        'image': 'assets/images/makam_kalijaga.jpeg',
+        'nama': 'Makam Sunan Bonang',
+        'desc': 'Kompleks pemakaman sakral yang dikelilingi arsitektur gapura kuno bercorak Hindu-Jawa.',
+        'lokasi': 'Kutorejo, Tuban, Jawa Timur',
+        'image': 'assets/images/makam_bonang.jpeg',
       },
     ];
 

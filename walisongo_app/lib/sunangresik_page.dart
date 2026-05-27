@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SunanKalijagaPage extends StatelessWidget {
-  const SunanKalijagaPage({super.key});
+class SunanGresikPage extends StatelessWidget {
+  const SunanGresikPage({super.key});
 
   static const Color primaryGreen = Color(0xFF2D6A4F);
   static const Color darkGreen = Color(0xFF1B4332);
@@ -25,13 +25,13 @@ class SunanKalijagaPage extends StatelessWidget {
                 _buildBiografiSection(),
                 const SizedBox(height: 24),
                 _buildImageSection(
-                  'assets/images/wayang.jpeg', // ← Pastikan sudah ada di pubspec.yaml
-                  'Filosofi Dakwah: Wayang & Seni',
+                  'assets/images/pasar_gresik.png', // ← Pastikan sudah ada di pubspec.yaml
+                  'Strategi Dakwah: Perdagangan & Pertanian',
                 ),
                 const SizedBox(height: 16),
                 _buildFilosofiSection(),
                 const SizedBox(height: 24),
-                _buildIlirIlirSection(),   
+                _buildPrinsipSection(),   
                 const SizedBox(height: 24),
                 _buildTempatSection(),
                 const SizedBox(height: 32),
@@ -63,9 +63,9 @@ class SunanKalijagaPage extends StatelessWidget {
         background: Stack(
           fit: StackFit.expand,
           children: [
-            // Gambar Utama Sunan Kalijaga
+            // Gambar Utama Sunan Gresik
             Image.asset(
-              'assets/images/sunan_kalijaga.jpg', // ← Bisa disesuaikan dengan path foto Anda
+              'assets/images/sunan_gresik.jpeg', 
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(
@@ -101,7 +101,7 @@ class SunanKalijagaPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Sunan Kalijaga',
+                    'Sunan Gresik',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w800,
@@ -111,7 +111,7 @@ class SunanKalijagaPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    '"Mangesthi Sing Temenan, Kanggo Kaslamétaning..."',
+                    '"Yaa Ayyuhal Insanu Maa Gharraka Bi Rabbikal Karim..."',
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.white.withOpacity(0.75),
@@ -156,7 +156,7 @@ class SunanKalijagaPage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const Text(
-            'Lahir dengan nama Raden Syahid pada sekitar tahun 1450 M, beliau merupakan putra dari Tumenggung Wilatikta, Bupati Tuban. Perjalanan spiritualnya dimulai dari kegelisahan nurani melihat ketimpangan sosial, yang membawanya pada pertemuan legendaris dengan Sunan Bonang.',
+            'Dikenal dengan nama Syekh Maulana Malik Ibrahim atau Makhdum Ibrahim As-Samarkandy, beliau diperkirakan lahir pada awal abad ke-14 di Samarkand, Asia Tengah. Beliau merupakan wali tertua yang mendarat di tanah Jawa (khususnya Desa Sembalo, Leran, Gresik) pada tahun 1392 M untuk memulai era dakwah Walisongo.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -165,7 +165,7 @@ class SunanKalijagaPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'Kisah "Penjaga Kali" (Kalijaga) yang mashyur menggambarkan kekuatan hati beliau dalam menjalani laku prihatin dan meditasi di pinggir sungai sebagai bagian dari ujian spiritual sebelum akhirnya menjadi anggota Walisongo yang paling berpengaruh di tanah Jawa.',
+            'Dengan kepribadian yang lemah lembut dan penuh tata krama, beliau berhasil merangkul masyarakat Hindu-Buddha saat itu tanpa memandang kasta. Kehadirannya tidak hanya membawa ajaran Islam, tetapi juga solusi bagi peradaban masyarakat lokal lewat kemajuan ekonomi dan sosial.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -245,12 +245,16 @@ class SunanKalijagaPage extends StatelessWidget {
   Widget _buildFilosofiSection() {
     final items = [
       {
-        'title': 'Pewayangan',
-        'desc': 'Metafora perjalanan jiwa menuju Sang Khalik.',
+        'title': 'Perniagaan Terbuka',
+        'desc': 'Membuka warung makanan dan berdagang di tempat ramai untuk berinteraksi langsung dengan rakyat jelata.',
       },
       {
-        'title': 'Tembang Ilir-Ilir',
-        'desc': 'Pesan spiritual untuk bangkit dari kegelapan.',
+        'title': 'Irigasi & Pertanian',
+        'desc': 'Mengajarkan teknik cocok tanam modern dan sistem pengairan guna mendongkrak hasil panen para petani.',
+      },
+      {
+        'title': 'Balai Pengobatan',
+        'desc': 'Menyediakan layanan meramu obat tradisional secara gratis sebagai wujud kemanusiaan murni.',
       },
     ];
 
@@ -260,7 +264,7 @@ class SunanKalijagaPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Berbeda dengan metode dakwah konvensional, Sunan Kalijaga menggunakan pendekatan Akulturasi Budaya. Beliau memodifikasi Wayang Kulit yang semula bernilai dengan epik Hindu-Buddha menjadi media syiar Islam.',
+            'Metode dakwah Sunan Gresik menitikberatkan pada asimilasi sosial secara bertahap. Beliau tidak langsung merombak adat istiadat setempat, melainkan menunjukkan keindahan Islam melalui aksi nyata yang meringankan beban hidup masyarakat sehari-hari.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -312,7 +316,7 @@ class SunanKalijagaPage extends StatelessWidget {
     );
   }
 
-  Widget _buildIlirIlirSection() {
+  Widget _buildPrinsipSection() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
@@ -326,25 +330,25 @@ class SunanKalijagaPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Icon(
-              Icons.music_note,
+              Icons.auto_stories,
               color: textDark,
               size: 28,
             ),
             const SizedBox(height: 12),
             const Text(
-              'Lir-ilir, lir-ilir, tandure wus sumilir...',
+              'Rahmatan Lil \'Alamin',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
                 fontWeight: FontWeight.w800,
                 color: textDark,
                 height: 1.3,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
             const Text(
-              '"Bangunlah, bangunlah! Tanaman sudah bersemi, demikian indahnya dan menghijau, bagaikan pengantin baru..."',
+              'Prinsip utama beliau adalah menghapus sekat-sekat sosial kasta melalui pendidikan pesantren pertama di Nusantara. Beliau menanamkan bahwa di hadapan Sang Pencipta, seluruh manusia memiliki derajat yang sama, dan yang membedakan hanyalah ketakwaannya.',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 13,
                 color: textGray,
                 height: 1.65,
                 fontStyle: FontStyle.italic,
@@ -360,16 +364,16 @@ class SunanKalijagaPage extends StatelessWidget {
   Widget _buildTempatSection() {
     final tempat = [
       {
-        'nama': 'Masjid Agung Demak',
-        'desc': 'Terkenal dengan "Soko Tatal", tiang utama yang terbuat dari serpihan kayu karya Sunan Kalijaga.',
-        'lokasi': 'Demak, Jawa Tengah',
-        'image': 'assets/images/masjid_demak.jpeg',
+        'nama': 'Masjid Pesucian Leran',
+        'desc': 'Masjid tertua di tanah Jawa yang didirikan oleh Syekh Maulana Malik Ibrahim saat pertama kali menetap di Gresik.',
+        'lokasi': 'Leran, Manyar, Gresik',
+        'image': 'assets/images/masjid_gresik.png',
       },
       {
-        'nama': 'Makam Sunan Kalijaga',
-        'desc': 'Tempat peristirahatan terakhir beliau, yang menjadi pusat peziarahan dan kajian budaya.',
-        'lokasi': 'Kadilangu, Demak',
-        'image': 'assets/images/makam_kalijaga.jpeg',
+        'nama': 'Makam Syekh Maulana Malik Ibrahim',
+        'desc': 'Situs pemakaman bersejarah dengan batu nisan marmer kuno bergaya Gujarat yang berisi prasasti Arab.',
+        'lokasi': 'Gapuro Sukolilo, Kota Gresik',
+        'image': 'assets/images/makam_gresik.png',
       },
     ];
 

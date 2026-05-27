@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SunanKalijagaPage extends StatelessWidget {
-  const SunanKalijagaPage({super.key});
+class SunanKudusPage extends StatelessWidget {
+  const SunanKudusPage({super.key});
 
   static const Color primaryGreen = Color(0xFF2D6A4F);
   static const Color darkGreen = Color(0xFF1B4332);
@@ -25,13 +25,13 @@ class SunanKalijagaPage extends StatelessWidget {
                 _buildBiografiSection(),
                 const SizedBox(height: 24),
                 _buildImageSection(
-                  'assets/images/wayang.jpeg', // ← Pastikan sudah ada di pubspec.yaml
-                  'Filosofi Dakwah: Wayang & Seni',
+                  'assets/images/menara_kudus.jpeg', // ← Pastikan sudah ada di pubspec.yaml
+                  'Filosofi Dakwah: Akulturasi Menara Kudus',
                 ),
                 const SizedBox(height: 16),
                 _buildFilosofiSection(),
                 const SizedBox(height: 24),
-                _buildIlirIlirSection(),   
+                _buildToleransiSection(),   
                 const SizedBox(height: 24),
                 _buildTempatSection(),
                 const SizedBox(height: 32),
@@ -63,9 +63,9 @@ class SunanKalijagaPage extends StatelessWidget {
         background: Stack(
           fit: StackFit.expand,
           children: [
-            // Gambar Utama Sunan Kalijaga
+            // Gambar Utama Sunan Kudus
             Image.asset(
-              'assets/images/sunan_kalijaga.jpg', // ← Bisa disesuaikan dengan path foto Anda
+              'assets/images/sunan_kudus.jpeg', // ← Bisa disesuaikan dengan path foto Anda
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(
@@ -101,7 +101,7 @@ class SunanKalijagaPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    'Sunan Kalijaga',
+                    'Sunan Kudus',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w800,
@@ -111,7 +111,7 @@ class SunanKalijagaPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    '"Mangesthi Sing Temenan, Kanggo Kaslamétaning..."',
+                    '"Saling menghormati keyakinan, merangkul tanpa memukul..."',
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.white.withOpacity(0.75),
@@ -156,7 +156,7 @@ class SunanKalijagaPage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const Text(
-            'Lahir dengan nama Raden Syahid pada sekitar tahun 1450 M, beliau merupakan putra dari Tumenggung Wilatikta, Bupati Tuban. Perjalanan spiritualnya dimulai dari kegelisahan nurani melihat ketimpangan sosial, yang membawanya pada pertemuan legendaris dengan Sunan Bonang.',
+            'Lahir dengan nama Ja\'far Shadiq pada sekitar awal abad ke-16, beliau merupakan putra dari Sunan Ngudung (RMP Gajah Sena) dan Syarifah Dewi Rahil. Beliau memiliki garis keturunan langsung ke Nabi Muhammad SAW melalui jalur Imam Husain. Sunan Kudus dikenal luas sebagai wali yang menguasai berbagai disiplin ilmu agama (*Wali al-\'Ilmi*), mulai dari fikih, tauhid, hadis, hingga tafsir.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -165,7 +165,7 @@ class SunanKalijagaPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           const Text(
-            'Kisah "Penjaga Kali" (Kalijaga) yang mashyur menggambarkan kekuatan hati beliau dalam menjalani laku prihatin dan meditasi di pinggir sungai sebagai bagian dari ujian spiritual sebelum akhirnya menjadi anggota Walisongo yang paling berpengaruh di tanah Jawa.',
+            'Selain menjadi ulama besar, beliau pernah memegang posisi penting sebagai Panglima Perang Kesultanan Demak. Kepiawaiannya dalam memimpin pemerintahan dan strategi militer menjadikannya tokoh yang sangat disegani, sebelum akhirnya memilih fokus berdakwah dan mendirikan peradaban Islam di wilayah Kudus.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -245,12 +245,16 @@ class SunanKalijagaPage extends StatelessWidget {
   Widget _buildFilosofiSection() {
     final items = [
       {
-        'title': 'Pewayangan',
-        'desc': 'Metafora perjalanan jiwa menuju Sang Khalik.',
+        'title': 'Arsitektur Menara',
+        'desc': 'Bentuk menara masjid yang menyerupai candi corak Hindu sebagai jembatan visual kedekatan budaya.',
       },
       {
-        'title': 'Tembang Ilir-Ilir',
-        'desc': 'Pesan spiritual untuk bangkit dari kegelapan.',
+        'title': 'Tembang Maskumambang',
+        'desc': 'Media sastra macapat ciptaan beliau yang berisi tuntunan hidup dan kesadaran spiritual.',
+      },
+      {
+        'title': 'Pendekatan Kultural',
+        'desc': 'Mengadaptasi tradisi lama masyarakat tanpa menghilangkan esensi kemurnian syariat Islam.',
       },
     ];
 
@@ -260,7 +264,7 @@ class SunanKalijagaPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Berbeda dengan metode dakwah konvensional, Sunan Kalijaga menggunakan pendekatan Akulturasi Budaya. Beliau memodifikasi Wayang Kulit yang semula bernilai dengan epik Hindu-Buddha menjadi media syiar Islam.',
+            'Metode dakwah Sunan Kudus menonjolkan kearifan lokal yang sangat tinggi. Beliau sangat memahami psikologi masyarakat Kudus yang saat itu mayoritas masih memeluk agama Hindu dan Buddha, sehingga dakwah dilakukan dengan cara persuasif.',
             style: TextStyle(
               fontSize: 14,
               color: textGray,
@@ -312,7 +316,7 @@ class SunanKalijagaPage extends StatelessWidget {
     );
   }
 
-  Widget _buildIlirIlirSection() {
+  Widget _buildToleransiSection() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
@@ -326,25 +330,25 @@ class SunanKalijagaPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Icon(
-              Icons.music_note,
+              Icons.favorite,
               color: textDark,
               size: 28,
             ),
             const SizedBox(height: 12),
             const Text(
-              'Lir-ilir, lir-ilir, tandure wus sumilir...',
+              'Kisah Toleransi Sapi',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
                 fontWeight: FontWeight.w800,
                 color: textDark,
                 height: 1.3,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
             const Text(
-              '"Bangunlah, bangunlah! Tanaman sudah bersemi, demikian indahnya dan menghijau, bagaikan pengantin baru..."',
+              'Salah satu bukti toleransi monumental Sunan Kudus adalah larangan menyembelih lembu/sapi bagi pengikutnya di wilayah Kudus. Demi menghormati umat Hindu yang menyucikan sapi, beliau mengganti hewan kurban dengan kerbau. Penghormatan budaya inilah yang melunakkan hati masyarakat untuk menerima Islam dengan sukarela.',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 13,
                 color: textGray,
                 height: 1.65,
                 fontStyle: FontStyle.italic,
@@ -360,16 +364,16 @@ class SunanKalijagaPage extends StatelessWidget {
   Widget _buildTempatSection() {
     final tempat = [
       {
-        'nama': 'Masjid Agung Demak',
-        'desc': 'Terkenal dengan "Soko Tatal", tiang utama yang terbuat dari serpihan kayu karya Sunan Kalijaga.',
-        'lokasi': 'Demak, Jawa Tengah',
-        'image': 'assets/images/masjid_demak.jpeg',
+        'nama': 'Masjid Menara Kudus',
+        'desc': 'Masjid kuno bersejarah yang didirikan tahun 1549 M, terkenal dengan menara bata merahnya yang berarsitektur mirip Candi Jago.',
+        'lokasi': 'Kauman, Kota Kudus',
+        'image': 'assets/images/masjid_kudus.jpeg',
       },
       {
-        'nama': 'Makam Sunan Kalijaga',
-        'desc': 'Tempat peristirahatan terakhir beliau, yang menjadi pusat peziarahan dan kajian budaya.',
-        'lokasi': 'Kadilangu, Demak',
-        'image': 'assets/images/makam_kalijaga.jpeg',
+        'nama': 'Makam Sunan Kudus',
+        'desc': 'Kompleks pemakaman yang terletak di bagian belakang Masjid Menara Kudus, menjadi salah satu pusat ziarah utama di jalur pantura.',
+        'lokasi': 'Kauman, Kabupaten Kudus, Jawa Tengah',
+        'image': 'assets/images/makam_kudus.jpeg',
       },
     ];
 
