@@ -14,14 +14,19 @@ class MainContainerPage extends StatefulWidget {
 
 class _MainContainerPageState extends State<MainContainerPage> {
   int _currentIndex = 0;
+  late List<Widget> _pages;
 
-  late final List<Widget> _pages = [
-    const BerandaPage(),
-    const PanduanZiarahPage(),
-    const LokusiPage(),   // ← sesuaikan dengan nama class di lokasipage.dart
-    const SejarahWalisongoPage(),
-    const YasinPage(),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      BerandaPage(onTabChange: ubahTab),
+      PanduanZiarahPage(onBack: () => ubahTab(0)), // ← tambah onBack
+      LokusiPage(onBack: () => ubahTab(0)),
+      SejarahWalisongoPage(onBack: () => ubahTab(0)),
+      YasinPage(onBack: () => ubahTab(0)),
+    ];
+  }
 
   void ubahTab(int index) {
     setState(() => _currentIndex = index);
@@ -40,13 +45,19 @@ class _MainContainerPageState extends State<MainContainerPage> {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: const Color(0xFF2D6A4F),
         unselectedItemColor: Colors.grey,
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600, fontSize: 11),
+        selectedLabelStyle:
+            const TextStyle(fontWeight: FontWeight.w600, fontSize: 11),
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: 'Beranda'),
-          BottomNavigationBarItem(icon: Icon(Icons.menu_book_outlined), label: 'Panduan'),
-          BottomNavigationBarItem(icon: Icon(Icons.location_on_outlined), label: 'Lokasi'),
-          BottomNavigationBarItem(icon: Icon(Icons.history_edu_outlined), label: 'Sejarah'),
-          BottomNavigationBarItem(icon: Icon(Icons.auto_stories_outlined), label: 'Yasin'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home_rounded), label: 'Beranda'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.menu_book_outlined), label: 'Panduan'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.location_on_outlined), label: 'Lokasi'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.history_edu_outlined), label: 'Sejarah'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.auto_stories_outlined), label: 'Yasin'),
         ],
       ),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'beranda_page.dart';
 import 'SunanKalijagaPage.dart';
 import 'kuispage.dart';
 import 'sunan_ampel_page.dart';
@@ -9,10 +8,11 @@ import 'sunangresik_page.dart';
 import 'sunanmuria_page.dart';
 import 'sunangunungjati_page.dart';
 import 'sunankudus_page.dart';
-import 'sunangiri_page.dart'; // pastikan file ini ada
+import 'sunangiri_page.dart';
 
 class SejarahWalisongoPage extends StatefulWidget {
-  const SejarahWalisongoPage({super.key});
+  final VoidCallback? onBack;
+  const SejarahWalisongoPage({super.key, this.onBack});
 
   @override
   State<SejarahWalisongoPage> createState() => _SejarahWalisongoPageState();
@@ -122,29 +122,18 @@ class _SejarahWalisongoPageState extends State<SejarahWalisongoPage> {
     },
   ];
 
-  // Map nama wali → halaman tujuan
   Widget? _getDetailPage(String name) {
     switch (name) {
-      case 'Sunan Kalijaga':
-        return const SunanKalijagaPage();
-      case 'Sunan Ampel':
-        return const SunanAmpelPage();
-      case 'Sunan Bonang':
-        return const SunanBonangPage();
-      case 'Sunan Giri':
-        return const SunanGiriPage();
-      case 'Sunan Gresik':
-        return const SunanGresikPage();
-      case 'Sunan Drajat':
-        return const SunanDrajatPage();
-      case 'Sunan Kudus':
-        return const SunanKudusPage();
-      case 'Sunan Muria':
-        return const SunanMuriaPage();
-      case 'Sunan Gunung Jati':
-        return const SunanGunungJatiPage();
-      default:
-        return null;
+      case 'Sunan Kalijaga': return const SunanKalijagaPage();
+      case 'Sunan Ampel': return const SunanAmpelPage();
+      case 'Sunan Bonang': return const SunanBonangPage();
+      case 'Sunan Giri': return const SunanGiriPage();
+      case 'Sunan Gresik': return const SunanGresikPage();
+      case 'Sunan Drajat': return const SunanDrajatPage();
+      case 'Sunan Kudus': return const SunanKudusPage();
+      case 'Sunan Muria': return const SunanMuriaPage();
+      case 'Sunan Gunung Jati': return const SunanGunungJatiPage();
+      default: return null;
     }
   }
 
@@ -169,26 +158,20 @@ class _SejarahWalisongoPageState extends State<SejarahWalisongoPage> {
       ),
     );
   }
-Widget _buildSliverAppBar() {
+
+  Widget _buildSliverAppBar() {
     return SliverAppBar(
       expandedHeight: 220,
       pinned: true,
       backgroundColor: darkGreen,
-      automaticallyImplyLeading: true, 
+      automaticallyImplyLeading: false,
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
         child: CircleAvatar(
-          backgroundColor: Colors.black.withOpacity(0.3), // Background transparan melingkar agar ikon terlihat jelas di atas gambar
+          backgroundColor: Colors.black.withOpacity(0.3),
           child: IconButton(
             icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
-            onPressed: () {
-              // Berpindah ke halaman Beranda dan menghapus semua history halaman sebelumnya
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => const BerandaPage()), // <-- Ganti BerandaPage() dengan nama kelas Beranda Anda
-                (route) => false, // Menghapus semua rute sebelumnya
-              );
-            },
+            onPressed: () => widget.onBack?.call(),
           ),
         ),
       ),
@@ -230,11 +213,7 @@ Widget _buildSliverAppBar() {
                       fontSize: 26, fontWeight: FontWeight.w800,
                       color: Colors.white, height: 1.2,
                       shadows: [
-                        Shadow(
-                          offset: Offset(0, 2),
-                          blurRadius: 4.0,
-                          color: Colors.black54,
-                        ),
+                        Shadow(offset: Offset(0, 2), blurRadius: 4.0, color: Colors.black54),
                       ],
                     ),
                   ),
@@ -244,12 +223,8 @@ Widget _buildSliverAppBar() {
                     style: TextStyle(
                       fontSize: 13, color: Colors.white.withOpacity(0.85),
                       fontWeight: FontWeight.w500,
-                      shadows: [
-                        Shadow(
-                          offset: Offset(0, 1),
-                          blurRadius: 2.0,
-                          color: Colors.black54,
-                        ),
+                      shadows: const [
+                        Shadow(offset: Offset(0, 1), blurRadius: 2.0, color: Colors.black54),
                       ],
                     ),
                   ),
@@ -267,9 +242,7 @@ Widget _buildSliverAppBar() {
       width: size, height: size,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: Border.all(
-          color: Colors.white.withOpacity(opacity), width: 30,
-        ),
+        border: Border.all(color: Colors.white.withOpacity(opacity), width: 30),
       ),
     );
   }
@@ -308,10 +281,7 @@ Widget _buildSliverAppBar() {
           Expanded(
             child: Text(
               'Walisongo adalah 9 ulama besar yang menyebarkan Islam di Nusantara dengan kearifan budaya.',
-              style: TextStyle(
-                fontSize: 13, color: darkGreen,
-                height: 1.5, fontWeight: FontWeight.w500,
-              ),
+              style: TextStyle(fontSize: 13, color: darkGreen, height: 1.5, fontWeight: FontWeight.w500),
             ),
           ),
         ],
@@ -336,14 +306,9 @@ Widget _buildSliverAppBar() {
         decoration: BoxDecoration(
           color: isHighlighted ? darkGreen : cardBg,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(
-            color: isExpanded ? primaryGreen : Colors.grey.shade200,
-          ),
+          border: Border.all(color: isExpanded ? primaryGreen : Colors.grey.shade200),
           boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.04),
-              blurRadius: 8, offset: const Offset(0, 4),
-            ),
+            BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 8, offset: const Offset(0, 4)),
           ],
         ),
         child: Column(
@@ -352,34 +317,21 @@ Widget _buildSliverAppBar() {
               leading: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: isHighlighted
-                      ? Colors.white24
-                      : primaryGreen.withOpacity(0.1),
+                  color: isHighlighted ? Colors.white24 : primaryGreen.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Icon(
-                  wali['icon'] as IconData,
-                  color: isHighlighted ? Colors.white : primaryGreen,
-                ),
+                child: Icon(wali['icon'] as IconData, color: isHighlighted ? Colors.white : primaryGreen),
               ),
               title: Text(
                 wali['name'] as String,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: isHighlighted ? Colors.white : textDark,
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, color: isHighlighted ? Colors.white : textDark),
               ),
               subtitle: Text(
                 wali['region'] as String,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: isHighlighted ? Colors.white70 : textGray,
-                ),
+                style: TextStyle(fontSize: 12, color: isHighlighted ? Colors.white70 : textGray),
               ),
               trailing: Icon(
-                isExpanded
-                    ? Icons.keyboard_arrow_up
-                    : Icons.keyboard_arrow_down,
+                isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
                 color: isHighlighted ? Colors.white : textGray,
               ),
             ),
@@ -391,13 +343,9 @@ Widget _buildSliverAppBar() {
                   children: [
                     Text(
                       wali['fullDesc'] as String,
-                      style: TextStyle(
-                        color: isHighlighted ? Colors.white : textDark,
-                        fontSize: 13, height: 1.5,
-                      ),
+                      style: TextStyle(color: isHighlighted ? Colors.white : textDark, fontSize: 13, height: 1.5),
                     ),
                     const SizedBox(height: 12),
-                    // Tombol hanya muncul jika halaman detail tersedia
                     if (detailPage != null)
                       SizedBox(
                         width: double.infinity,
@@ -407,11 +355,8 @@ Widget _buildSliverAppBar() {
                             MaterialPageRoute(builder: (_) => detailPage),
                           ),
                           style: OutlinedButton.styleFrom(
-                            side: BorderSide(
-                              color: isHighlighted ? Colors.white : primaryGreen,
-                            ),
-                            foregroundColor:
-                                isHighlighted ? Colors.white : primaryGreen,
+                            side: BorderSide(color: isHighlighted ? Colors.white : primaryGreen),
+                            foregroundColor: isHighlighted ? Colors.white : primaryGreen,
                           ),
                           child: const Text('PELAJARI SELENGKAPNYA'),
                         ),
@@ -429,10 +374,7 @@ Widget _buildSliverAppBar() {
     return Container(
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: darkGreen,
-        borderRadius: BorderRadius.circular(16),
-      ),
+      decoration: BoxDecoration(color: darkGreen, borderRadius: BorderRadius.circular(16)),
       child: const Text(
         'Islam masuk ke Nusantara bukan dengan pedang, melainkan dengan kearifan budaya.',
         style: TextStyle(color: Colors.white, fontStyle: FontStyle.italic),
@@ -451,9 +393,7 @@ Widget _buildSliverAppBar() {
         style: ElevatedButton.styleFrom(
           backgroundColor: darkGreen,
           minimumSize: const Size(double.infinity, 50),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         ),
         child: const Text('Mulai Kuis', style: TextStyle(color: Colors.white)),
       ),

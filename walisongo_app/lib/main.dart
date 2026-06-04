@@ -45,7 +45,7 @@ class WalisongoApp extends StatelessWidget {
               // Jika lebar layar melebihi 500px (artinya dibuka di Laptop/Web/Tablet)
               if (constraints.maxWidth > 500) {
                 return Scaffold(
-                  backgroundColor: const Color(0xFF1E1E24), // Warna background luar HP
+                  backgroundColor: const Color.fromARGB(255, 255, 255, 255), // Warna background luar HP
                   body: Center(
                     child: Container(
                       width: 390,  // Lebar standar HP modern

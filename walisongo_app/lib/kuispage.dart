@@ -73,15 +73,6 @@ class KuisPage extends StatelessWidget {
               ),
             ],
           ),
-          Container(
-            width: 36,
-            height: 36,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: Colors.grey.shade300),
-              color: cardBg,
-            ),
-          ),
         ],
       ),
     );

@@ -252,7 +252,7 @@ class _KuisQuizPageState extends State<KuisQuizPage>
                     elevation: 0,
                   ),
                   child: const Text(
-                    'Kembali ke Beranda',
+                    'Kembali ke Kuis',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15,
@@ -342,7 +342,6 @@ class _KuisQuizPageState extends State<KuisQuizPage>
         children: [
           Row(
             children: const [
-              Icon(Icons.menu, color: textDark, size: 22),
               SizedBox(width: 10),
               Text(
                 'Kuis Walisongo',

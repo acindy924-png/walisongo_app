@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
 class FasilitasPage extends StatelessWidget {
-  // 1. TAMBAHKAN PARAMETER DI SINI
   final String namaMasjid;
   final String jarakMasjid;
   final String statusMasjid;
+  final String imageMasjid;
+  final String imageToko;
 
   const FasilitasPage({
     super.key,
     required this.namaMasjid,
     required this.jarakMasjid,
     required this.statusMasjid,
+    required this.imageMasjid,
+    required this.imageToko,
   });
 
   static const Color primaryGreen = Color(0xFF2D6A4F);
@@ -35,7 +38,7 @@ class FasilitasPage extends StatelessWidget {
                   children: [
                     _buildHeader(),
                     const SizedBox(height: 24),
-                    _buildMasjidSection(), // Bagian ini akan membaca data dinamis
+                    _buildMasjidSection(),
                     const SizedBox(height: 24),
                     _buildToiletSection(),
                     const SizedBox(height: 24),
@@ -60,7 +63,7 @@ class FasilitasPage extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () => Navigator.pop(context),
-                child: const Icon(Icons.arrow_back, color: textDark, size: 22),
+                child: const Icon(Icons.arrow_back, color: primaryGreen, size: 22),
               ),
               const SizedBox(width: 14),
               const Text(
@@ -96,45 +99,23 @@ class FasilitasPage extends StatelessWidget {
           const SizedBox(height: 6),
           Text(
             'Menyediakan kemudahan bagi para peziarah selama kunjungan di kawasan religi.',
-            style: TextStyle(
-              fontSize: 13.5,
-              color: textGray,
-              height: 1.55,
-            ),
+            style: TextStyle(fontSize: 13.5, color: textGray, height: 1.55),
           ),
         ],
       ),
     );
   }
 
-  // ── MASJID & MUSHOLA (SEKARANG SUDAH DINAMIS) ─────────────────
   Widget _buildMasjidSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'Masjid & Mushola',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  color: textDark,
-                ),
-              ),
-              const Text(
-                'LIHAT SEMUA',
-                style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w700,
-                  color: primaryGreen,
-                  letterSpacing: 0.5,
-                ),
-              ),
-            ],
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Text(
+            'Masjid & Mushola',
+            style: TextStyle(
+                fontSize: 18, fontWeight: FontWeight.w700, color: primaryGreen),
           ),
         ),
         const SizedBox(height: 14),
@@ -144,25 +125,17 @@ class FasilitasPage extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             child: Stack(
               children: [
-                Container(
-                  height: 200,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Color(0xFF1B4332), Color(0xFF2D6A4F)],
-                    ),
-                  ),
-                  child: const Center(
-                    child: Icon(Icons.mosque_outlined,
-                        size: 64, color: Colors.white24),
-                  ),
-                ),
+                imageMasjid.isNotEmpty
+                    ? Image.asset(
+                        imageMasjid,
+                        height: 200,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) => _buildMasjidFallback(),
+                      )
+                    : _buildMasjidFallback(),
                 Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
+                  bottom: 0, left: 0, right: 0,
                   child: Container(
                     height: 120,
                     decoration: BoxDecoration(
@@ -178,9 +151,7 @@ class FasilitasPage extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  bottom: 14,
-                  left: 16,
-                  right: 16,
+                  bottom: 14, left: 16, right: 16,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
@@ -188,7 +159,6 @@ class FasilitasPage extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // MENGGUNAKAN DATA DINAMIS NAMA MASJID
                             Text(
                               namaMasjid,
                               style: const TextStyle(
@@ -204,13 +174,10 @@ class FasilitasPage extends StatelessWidget {
                                 const Icon(Icons.location_on,
                                     color: Colors.white70, size: 13),
                                 const SizedBox(width: 3),
-                                // MENGGUNAKAN DATA DINAMIS JARAK
                                 Text(
                                   jarakMasjid,
                                   style: const TextStyle(
-                                    color: Colors.white70,
-                                    fontSize: 12,
-                                  ),
+                                      color: Colors.white70, fontSize: 12),
                                 ),
                               ],
                             ),
@@ -224,7 +191,6 @@ class FasilitasPage extends StatelessWidget {
                           color: primaryGreen,
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        // MENGGUNAKAN DATA DINAMIS STATUS
                         child: Text(
                           statusMasjid.toUpperCase(),
                           style: const TextStyle(
@@ -246,12 +212,28 @@ class FasilitasPage extends StatelessWidget {
     );
   }
 
-  // ── TOILET & AREA WUDHU ───────────────────────────────────
+  Widget _buildMasjidFallback() {
+    return Container(
+      height: 200,
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFF1B4332), Color(0xFF2D6A4F)],
+        ),
+      ),
+      child: const Center(
+        child: Icon(Icons.mosque_outlined, size: 64, color: Colors.white24),
+      ),
+    );
+  }
+
   Widget _buildToiletSection() {
     final items = [
       {
         'icon': Icons.water_drop_outlined,
-        'nama': 'Toilet & Wudhu Wanita',
+        'nama': 'Toilet & Wudhu Pria',
         'jarak': '50m',
         'status': 'Terbuka untuk Umum',
       },
@@ -271,10 +253,7 @@ class FasilitasPage extends StatelessWidget {
           child: Text(
             'Toilet & Area Wudhu',
             style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-              color: textDark,
-            ),
+                fontSize: 18, fontWeight: FontWeight.w700, color: primaryGreen),
           ),
         ),
         const SizedBox(height: 14),
@@ -297,14 +276,10 @@ class FasilitasPage extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: lightGreenBg,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(
-              item['icon'] as IconData,
-              color: primaryGreen,
-              size: 22,
-            ),
+                color: lightGreenBg,
+                borderRadius: BorderRadius.circular(10)),
+            child:
+                Icon(item['icon'] as IconData, color: primaryGreen, size: 22),
           ),
           const SizedBox(width: 14),
           Expanded(
@@ -314,10 +289,9 @@ class FasilitasPage extends StatelessWidget {
                 Text(
                   item['nama'],
                   style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: textDark,
-                  ),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: textDark),
                 ),
                 const SizedBox(height: 4),
                 Row(
@@ -327,10 +301,8 @@ class FasilitasPage extends StatelessWidget {
                     const SizedBox(width: 3),
                     Text(
                       '${item['jarak']} • ${item['status']}',
-                      style: const TextStyle(
-                        fontSize: 12,
-                        color: textGray,
-                      ),
+                      style:
+                          const TextStyle(fontSize: 12, color: textGray),
                     ),
                   ],
                 ),
@@ -342,7 +314,6 @@ class FasilitasPage extends StatelessWidget {
     );
   }
 
-  // ── AREA KULINER & OLEH-OLEH ──────────────────────────────
   Widget _buildKulinerSection() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -352,10 +323,7 @@ class FasilitasPage extends StatelessWidget {
           const Text(
             'Area Kuliner & Oleh-oleh',
             style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-              color: textDark,
-            ),
+                fontSize: 18, fontWeight: FontWeight.w700, color: primaryGreen),
           ),
           const SizedBox(height: 14),
           Row(
@@ -366,24 +334,19 @@ class FasilitasPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(14),
                   child: Stack(
                     children: [
-                      Container(
-                        height: 180,
-                        decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [Color(0xFF3E2723), Color(0xFF6D4C41)],
-                          ),
-                        ),
-                        child: const Center(
-                          child: Icon(Icons.store_outlined,
-                              size: 48, color: Colors.white24),
-                        ),
-                      ),
+                      // ← FOTO DINAMIS TOKO
+                      imageToko.isNotEmpty
+                          ? Image.asset(
+                              imageToko,
+                              height: 180,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                              errorBuilder: (_, __, ___) =>
+                                  _buildTokoFallback(),
+                            )
+                          : _buildTokoFallback(),
                       Positioned(
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
+                        bottom: 0, left: 0, right: 0,
                         child: Container(
                           height: 80,
                           decoration: BoxDecoration(
@@ -399,28 +362,22 @@ class FasilitasPage extends StatelessWidget {
                         ),
                       ),
                       const Positioned(
-                        bottom: 12,
-                        left: 12,
+                        bottom: 12, left: 12,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'Pusat\nOleh-Oleh',
                               style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                                height: 1.2,
-                              ),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.white,
+                                  height: 1.2),
                             ),
                             SizedBox(height: 4),
-                            Text(
-                              '120m • Buka',
-                              style: TextStyle(
-                                fontSize: 11,
-                                color: Colors.white70,
-                              ),
-                            ),
+                            Text('120m • Buka',
+                                style: TextStyle(
+                                    fontSize: 11, color: Colors.white70)),
                           ],
                         ),
                       ),
@@ -459,6 +416,23 @@ class FasilitasPage extends StatelessWidget {
     );
   }
 
+  Widget _buildTokoFallback() {
+    return Container(
+      height: 180,
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFF3E2723), Color(0xFF6D4C41)],
+        ),
+      ),
+      child: const Center(
+        child: Icon(Icons.store_outlined, size: 48, color: Colors.white24),
+      ),
+    );
+  }
+
   Widget _buildKulinerSmallCard({
     required IconData icon,
     required String nama,
@@ -471,30 +445,21 @@ class FasilitasPage extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: BorderRadius.circular(14),
-      ),
+          color: bgColor, borderRadius: BorderRadius.circular(14)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(icon, color: iconColor, size: 22),
           const SizedBox(height: 8),
-          Text(
-            nama,
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w700,
-              color: textColor,
-            ),
-          ),
+          Text(nama,
+              style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w700,
+                  color: textColor)),
           const SizedBox(height: 4),
-          Text(
-            jarak,
-            style: TextStyle(
-              fontSize: 11,
-              color: iconColor.withOpacity(0.75),
-            ),
-          ),
+          Text(jarak,
+              style: TextStyle(
+                  fontSize: 11, color: iconColor.withOpacity(0.75))),
         ],
       ),
     );

@@ -65,7 +65,7 @@ class SunanKalijagaPage extends StatelessWidget {
           children: [
             // Gambar Utama Sunan Kalijaga
             Image.asset(
-              'assets/images/sunan_kalijaga.jpg', // ← Bisa disesuaikan dengan path foto Anda
+              'assets/images/sunan_kalijaga.jpeg', // ← Bisa disesuaikan dengan path foto Anda
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(

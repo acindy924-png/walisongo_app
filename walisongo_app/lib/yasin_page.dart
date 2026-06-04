@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'models/ayah.dart';
 
 class YasinPage extends StatefulWidget {
-  const YasinPage({super.key});
+  final VoidCallback? onBack;
+  const YasinPage({super.key, this.onBack});
 
   @override
   State<YasinPage> createState() => _YasinPageState();
@@ -145,7 +146,7 @@ class _YasinPageState extends State<YasinPage> {
           Row(
             children: [
               GestureDetector(
-                onTap: () => Navigator.pop(context),
+                onTap: () => widget.onBack?.call(),
                 child: const Icon(Icons.arrow_back, color: primaryGreen, size: 24),
               ),
               const SizedBox(width: 14),

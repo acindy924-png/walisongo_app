@@ -7,7 +7,8 @@ import 'sejarahwalisongopage.dart';
 import 'yasin_page.dart';
 
 class BerandaPage extends StatelessWidget {
-  const BerandaPage({super.key});
+  final Function(int)? onTabChange; // ← ini harus ada
+  const BerandaPage({super.key, this.onTabChange}); // ← ini juga
 
   static const Color _green = Color(0xFF2E7D32);
   static const Color _greenLight = Color(0xFFE8F5E9);
@@ -122,7 +123,7 @@ class BerandaPage extends StatelessWidget {
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.search, color: Colors.black87),
+          icon: const Icon(Icons.search, color: Color.fromRGBO(45, 106, 79, 1)),
           onPressed: () => _showSearch(context),
         ),
       ],
@@ -435,7 +436,7 @@ class BerandaPage extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: Color(0xFF1A1A1A),
+            color: Color.fromRGBO(45, 106, 79, 1),
           ),
         ),
         TextButton(

@@ -127,13 +127,13 @@ class _OnboardingScreenState extends State<OnboardingScreen>
     ),
     OnboardingData(
       imagePath: 'assets/images/masjid_demak.jpeg',
-      title: 'Walisongo Aplikasi',
+      title: 'Aplikasi Walisongo',
       description:
           'Menghubungkan ilmu, nilai islami, dan teknologi untuk pengalaman yang lebih mudah dan nyaman',
     ),
     OnboardingData(
       imagePath: 'assets/images/makam_wali.jpeg',
-      title: 'Walisongo Aplikasi',
+      title: 'Aplikasi Walisongo',
       description:
           'Hadir untuk memberikan akses berisi informasi, pembelajaran, dan layanan yang praktis serta bermanfaat',
     ),
